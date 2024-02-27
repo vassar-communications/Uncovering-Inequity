@@ -1,0 +1,286 @@
+@import url("https://use.typekit.net/ziz2qik.css");
+
+@mixin visually-hidden() {
+    clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+.home.page-template-default {
+
+
+
+  background-image: url(https://www.vassar.edu/sites/default/files/2024-02/uncovering-inequity-poster.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  .wp-site-blocks {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+
+.intro-text {
+  font-family: "freight-big-pro", "Georgia", "Times", "Times New Roman", serif;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+html body {
+.wp-block-site-title {
+  text-transform: uppercase;
+  font-size: 1.4rem !important;
+  letter-spacing: 0.1rem;
+}
+}
+.newspaper-quote-section {
+  h2.wp-block-heading {
+    font-size: 1.1rem !important;
+    font-variation-settings: "wght" 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08rem !important;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 1rem;
+  }
+}
+
+
+
+
+/* ------ START MENU ------ */
+
+// jack up that specificity, we're gonna need it
+html body .wp-block-navigation {
+
+    $default-menu-border: #f00;
+    
+  .wp-block-navigation__container .wp-block-navigation-item__content {
+    color: var(--menu-text-color, var(--wp--preset--color--secondary, #333)) !important;
+  }
+
+  ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu {
+    background: transparent !important;
+    border: none !important;
+    border-right: var(--menu-border-right-width, 2px) solid var(--menu-border-right-color, #{$default-menu-border}) !important;
+    text-align: right;
+    min-width: 20rem !important;
+    margin-right: calc(-1 * var(--menu-border-right-width, 2px));
+    margin-top: -2px;
+
+    padding-top: 1rem;
+  }
+
+  li.wp-block-navigation-submenu {
+    border-right: var(--menu-border-right-width, 2px) solid transparent;
+      &:hover {
+        border-right: var(--menu-border-right-width, 2px) solid var(--menu-border-right-color, #{$default-menu-border});
+
+        &, a {
+            color: var(--menu-text-color, var(--wp--preset--color--secondary, #333)) !important;
+        }
+      }
+    }
+
+  /*
+  Set up menu theming via CSS vars so I can have the side-border design on inner pages as well
+*/
+
+  li.wp-block-navigation-item.has-child.wp-block-navigation-submenu {
+    padding-right: 0.4rem;
+  }
+
+  ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu {
+    background-color: var(--menu-background-color, #fff) !important;
+    
+    & > * {
+        z-index: 10;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: var(--menu-bg-image, none) !important;
+        background-attachment: fixed !important;
+        background-position: top left !important;
+        background-size: 100vw !important;
+        opacity: 0.07;
+    }
+  }
+
+  .wp-block-navigation-item {
+    text-align: right;
+    background-color: unset;
+  }
+
+  .wp-block-navigation-submenu > .wp-block-navigation-item__content {
+    font-family: "acumin-pro-extra-condensed", "Helvetica Neue", "Helvetica",
+      "Arial", sans-serif;
+    font-size: 2rem;
+  }
+
+.wp-block-navigation .has-child .wp-block-navigation__submenu-container>.wp-block-navigation-item>.wp-block-navigation-item__content {
+    display: block;
+}
+
+
+.wp-block-navigation:not(.has-background) .wp-block-navigation__responsive-container.is-menu-open {
+    background-color: #000;
+    --wp--preset--font-size--small: clamp(1.1rem, 1.1rem + ((1vw - 0.2rem) * 0.227), 1.4rem);
+}
+
+ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu {
+    box-shadow: 0 0.4rem 0.4rem rgba(0,0,0,0.2);
+}
+
+.wp-block-navigation-item.wp-block-navigation-link a {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+    line-height: 1.1;
+    transition: 0.2s all ease !important;
+    
+    &:hover {
+        background: var(--menu--item-background-color-hover, #eee);
+    }
+}
+
+.wp-block-navigation__submenu-container.wp-block-navigation-submenu {
+    padding-top: 1.4rem;
+    padding-bottom: 1rem;
+}
+
+}
+
+/* ------ END MENU ------ */
+
+.home {
+    --menu-border-right-width: 1px;
+    --menu--item-background-color-hover: #333;
+    --menu-border-right-color: #e00;
+        
+
+    --menu-bg-image: url("https://www.vassar.edu/sites/default/files/2024-02/uncovering-inequity-poster.jpg");
+    --menu-background-color: #000;
+    --menu-text-color: #bbb;
+}
+
+
+
+
+.newspaper-quote-section {
+    margin-top: 3rem;
+    
+    p, ul {
+        font-size: var(--wp--preset--font-size--smallish);
+    }
+}
+
+
+
+
+
+
+
+a[href$=".pdf"]:before {
+    background: #e00;
+    color: #fff;
+    margin-right: 0.4rem;
+    padding: 0.1rem 0.4rem;
+    content: "PDF";
+    font-size: 1.1rem;
+    display: inline-block;
+    border-radius: 0.2rem
+}
+
+a[href$=".pdf"] {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    margin: 2rem 0;
+    display: block;
+    font-size: 1.1rem;
+    width: fit-content;
+}
+
+
+.wp-lightbox-overlay .scrim {
+    background: #161616 !important;
+}
+.close-button {
+    --wp--preset--color--contrast: #aaa;
+}
+
+.wp-block-lazyblock-supertitle {
+    font-variation-settings: "wght" 800;
+    color: #8b7011;
+}
+
+.wp-block-lazyblock-supertitle {
+    position: relative; 
+    
+    &:after {
+        position: absolute; 
+        content: "";
+        width: 48%;
+        border-top: 3px solid #8b701126;
+        top: 50%;
+    }
+
+    .article-supertitle__content {
+        font-variation-settings: "wght" 800;
+        color: #8b7011;
+        position: relative;
+        padding-right: 0.8rem;
+        display: inline;
+    }   
+}
+
+header.wp-block-template-part {
+    padding: 0 2vw !important;
+}
+
+
+.home {
+    header.wp-block-template-part {
+        @media (min-width: 60rem) {
+//            position: absolute;
+        }
+    }
+    .wp-block-post-title {
+        @include visually-hidden();
+    }
+    .wp-block-site-title {
+        a {
+            --wp--preset--color--primary: #fff;
+        }
+    }
+}
+
+
+header.wp-block-template-part {
+    width: 100%;
+    padding: 0 clamp(1rem, 3vw, 3rem) !important;
+}
+
+button.wp-block-navigation__responsive-container-open {
+    color: #fff;
+}
+
+:where(.wp-site-blocks) > * {
+    margin-top: 0 !important;
+}
