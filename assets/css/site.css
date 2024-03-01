@@ -38,89 +38,6 @@ html body .wp-block-site-title {
   padding-bottom: 1rem;
 }
 
-/* ------ START MENU ------ */
-html body .wp-block-navigation {
-  /*
-    Set up menu theming via CSS vars so I can have the side-border design on inner pages as well
-  */
-}
-html body .wp-block-navigation .wp-block-navigation__container .wp-block-navigation-item__content {
-  color: var(--menu-text-color, var(--wp--preset--color--secondary, #333)) !important;
-}
-html body .wp-block-navigation ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu {
-  background: transparent !important;
-  border: none !important;
-  border-right: var(--menu-border-right-width, 2px) solid var(--menu-border-right-color, #f00) !important;
-  text-align: right;
-  min-width: 20rem !important;
-  margin-right: calc(-1 * var(--menu-border-right-width, 2px));
-  margin-top: -2px;
-  padding-top: 1rem;
-}
-html body .wp-block-navigation li.wp-block-navigation-submenu {
-  border-right: var(--menu-border-right-width, 2px) solid transparent;
-}
-html body .wp-block-navigation li.wp-block-navigation-submenu:hover {
-  border-right: var(--menu-border-right-width, 2px) solid var(--menu-border-right-color, #f00);
-}
-html body .wp-block-navigation li.wp-block-navigation-submenu:hover, html body .wp-block-navigation li.wp-block-navigation-submenu:hover a {
-  color: var(--menu-text-color, var(--wp--preset--color--secondary, #333)) !important;
-}
-html body .wp-block-navigation li.wp-block-navigation-item.has-child.wp-block-navigation-submenu {
-  padding-right: 0.4rem;
-}
-html body .wp-block-navigation ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu {
-  background-color: var(--menu-background-color, #fff) !important;
-}
-html body .wp-block-navigation ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu > * {
-  z-index: 10;
-}
-html body .wp-block-navigation ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-image: var(--menu-bg-image, none) !important;
-  background-attachment: fixed !important;
-  background-position: top left !important;
-  background-size: 100vw !important;
-  opacity: 0.07;
-}
-html body .wp-block-navigation .wp-block-navigation-item {
-  text-align: right;
-  background-color: unset;
-}
-html body .wp-block-navigation .wp-block-navigation-submenu > .wp-block-navigation-item__content {
-  font-family: "acumin-pro-extra-condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-size: 2rem;
-}
-html body .wp-block-navigation .wp-block-navigation .has-child .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content {
-  display: block;
-}
-html body .wp-block-navigation .wp-block-navigation:not(.has-background) .wp-block-navigation__responsive-container.is-menu-open {
-  background-color: #000;
-  --wp--preset--font-size--small: clamp(1.1rem, 1.1rem + ((1vw - 0.2rem) * 0.227), 1.4rem);
-}
-html body .wp-block-navigation ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu {
-  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
-}
-html body .wp-block-navigation .wp-block-navigation-item.wp-block-navigation-link a {
-  padding-top: 0.4rem !important;
-  padding-bottom: 0.4rem !important;
-  line-height: 1.1;
-  transition: 0.2s all ease !important;
-}
-html body .wp-block-navigation .wp-block-navigation-item.wp-block-navigation-link a:hover {
-  background: var(--menu--item-background-color-hover, #eee);
-}
-html body .wp-block-navigation .wp-block-navigation__submenu-container.wp-block-navigation-submenu {
-  padding-top: 1.4rem;
-  padding-bottom: 1rem;
-}
-
-/* ------ END MENU ------ */
 .home {
   --menu-border-right-width: 1px;
   --menu--item-background-color-hover: #333;
@@ -218,3 +135,106 @@ button.wp-block-navigation__responsive-container-open {
 :where(.wp-site-blocks) > * {
   margin-top: 0 !important;
 }
+
+.wp-block-navigation:not(.has-background) .wp-block-navigation__responsive-container.is-menu-open {
+  background-color: var(--modal-nav-bg-color, #fff) !important;
+}
+
+button.wp-block-navigation__responsive-container-open svg rect {
+  fill: var(--modal-nav-buttonIcon-color, var(--modal-nav-buttonIconOpen-color, #e00));
+}
+
+button.wp-block-navigation__responsive-container-close svg path {
+  fill: var(--modal-nav-buttonIcon-color, var(--modal-nav-buttonIconClose-color, #fff));
+}
+
+.home {
+  --modal-nav-bg-color: #000;
+  --modal-nav-buttonIcon-color: #fff;
+}
+
+body:not(.home) {
+  --modal-nav-bg-color: #fff;
+  --modal-nav-buttonIcon-color: #e00;
+}
+
+/* ------ START MENU ------ */
+html body .wp-block-navigation {
+  /*
+    Set up menu theming via CSS vars so I can have the side-border design on inner pages as well
+  */
+}
+html body .wp-block-navigation .wp-block-navigation__container .wp-block-navigation-item__content {
+  color: var(--menu-text-color, var(--wp--preset--color--secondary, #333)) !important;
+}
+html body .wp-block-navigation ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu {
+  background-color: var(--menu-background-color, #fff) !important;
+  border: none !important;
+  border-right: var(--menu-border-right-width, 2px) solid var(--menu-border-right-color, #f00) !important;
+  text-align: right;
+  min-width: 20rem !important;
+  margin-right: calc(-1 * var(--menu-border-right-width, 2px));
+  margin-top: -2px;
+  padding-top: 1rem;
+}
+html body .wp-block-navigation li.wp-block-navigation-submenu {
+  border-right: var(--menu-border-right-width, 2px) solid transparent;
+}
+html body .wp-block-navigation li.wp-block-navigation-submenu:hover {
+  border-right: var(--menu-border-right-width, 2px) solid var(--menu-border-right-color, #f00);
+}
+html body .wp-block-navigation li.wp-block-navigation-submenu:hover, html body .wp-block-navigation li.wp-block-navigation-submenu:hover a {
+  color: var(--menu-text-color, var(--wp--preset--color--secondary, #333)) !important;
+}
+html body .wp-block-navigation li.wp-block-navigation-item.has-child.wp-block-navigation-submenu {
+  padding-right: 0.4rem;
+}
+html body .wp-block-navigation ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu > * {
+  z-index: 10;
+}
+html body .wp-block-navigation ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: var(--menu-bg-image, none) !important;
+  background-attachment: fixed !important;
+  background-position: top left !important;
+  background-size: 100vw !important;
+  opacity: 0.07;
+}
+html body .wp-block-navigation .wp-block-navigation-item {
+  text-align: right;
+  background-color: unset;
+}
+html body .wp-block-navigation .wp-block-navigation-submenu > .wp-block-navigation-item__content {
+  font-family: "acumin-pro-extra-condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 2rem;
+}
+html body .wp-block-navigation .wp-block-navigation .has-child .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+  display: block;
+}
+html body .wp-block-navigation .wp-block-navigation:not(.has-background) .wp-block-navigation__responsive-container.is-menu-open {
+  background-color: #000;
+  --wp--preset--font-size--small: clamp(1.1rem, 1.1rem + ((1vw - 0.2rem) * 0.227), 1.4rem);
+}
+html body .wp-block-navigation ul.wp-block-navigation__submenu-container.wp-block-navigation-submenu {
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+html body .wp-block-navigation .wp-block-navigation-item.wp-block-navigation-link a {
+  padding-top: 0.4rem !important;
+  padding-bottom: 0.4rem !important;
+  line-height: 1.1;
+  transition: 0.2s all ease !important;
+}
+html body .wp-block-navigation .wp-block-navigation-item.wp-block-navigation-link a:hover {
+  background: var(--menu--item-background-color-hover, #eee);
+}
+html body .wp-block-navigation .wp-block-navigation__submenu-container.wp-block-navigation-submenu {
+  padding-top: 1.4rem;
+  padding-bottom: 1rem;
+}
+
+/* ------ END MENU ------ */
